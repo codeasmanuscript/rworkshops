@@ -1,0 +1,24 @@
+---
+title: "Who we are"
+---
+
+<p class="message"> <strong>Code As Manuscript</strong> is an organization that
+teaches R through hands-on workshops. These workshops cover topics that
+encourage thinking about code and analyses as a 'publishable' unit and as
+something that should be made public and shared, and how to go about applying
+this way of thinking. Our mission is to provide training to graduate students,
+researchers, and scientists on how to make their analyses more reproducible and
+to change how researchers view their code.</p>
+
+We get much inspiration for our workshops from
+[Software Carpentry (SWC)](http://software-carpentry.org/), of which
+we are also SWC instructors. Currently, we teach these workshops as part of the 
+[Graduate Professional Skills (GPS) program](http://www.sgs.utoronto.ca/currentstudents/Pages/Professional-Development.aspx)
+at the University of Toronto. GPS provides training and workshops that develop
+skills that are useful in non-academic workplaces that graduate programs may not
+necessarily give.
+
+## Upcoming session
+
+The next workshop will be some time in late Oct to mid Nov, 2016. Specific dates
+and times TBA.
