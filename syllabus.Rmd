@@ -1,0 +1,84 @@
+---
+title: Syllabus
+---
+
+This series of *hands-on* workshops aims to introduce students to the concept of
+research reproducibility and to get the students practicing with using version
+control systems and with using modern techniques in R that make analyses less
+error prone and reproducible, and that make you more efficient, productive, and
+in control.  Techniques for using version control systems to faciliate greater
+collaboration among peers will also be presented.  The ultimate goal of the
+workshop is to show how to reduce the number of steps needed to go from the
+initial data analysis to the final written manuscript or thesis (hence the name 
+*Code As Manuscript*).  Given the applied nature of the concepts in these
+workshops, hands-on activities and 
+[live coding](http://en.wikipedia.org/wiki/Live_coding) will be integrated into each
+workshop.
+
+# Goals:
+
+The expected goal of the workshops is that you will be able to:
+
+- Learn how to use R for common data analysis problems
+- Produce publication quality plots
+- Get your data into an easily analyzable format
+- Use R code in your manuscript/thesis to re-generate results and plots
+
+By achieving these goals, you will be on your way to making an efficient and
+productive workflow, that will make it easier for you do to your work and
+research, and that is also scientifically rigorous and transparent. Because R is
+free and open source, these are skills you can take with you wherever your
+career takes you.
+
+# Schedule:
+
+The workshop will cover the following topics:
+
+1. Intro to R and RStudio
+2. Data wrangling (management, organizing)
+3. Visualization
+4. Dynamic report generation
+
+# Date & time:
+
+TBA
+
+# Intended audience:
+
+Graduate students or post-docs whose research involves a fair amount of data
+analysis.  No experience necessary for these workshops.
+
+## Pre-requisites:
+
+- See the [instructions page](instructions.html)
+- Bring a positive, not-afraid-of-making-mistakes-or-feeling-unsure attitude!! 
+Learning any language (either human or computer) is hard work and *not* easy,
+but can be done!
+
+## Assignments:
+
+Because this is a hands-on workshop, at the end of each workshop, we have an
+activity for you to try out.  And since this is a GPS-approved course, if you
+want to get a GPS credit, you will need to:
+
+1. Come to all the workshops (though we can be flexible).
+2. Complete each workshop assignment using R Markdown, copy contents of the 
+generated `.md` file into a GitHub Issue, and attach the original `.Rmd` file to
+the Issue.
+
+Don't worry if this doesn't make sense yet. We will go over these details in the
+workshop.
+
+# Instructor(s)
+
+- Luke Johnston, MSc, PhD (c)  
+
+You can contact the workshop email at: codeasmanuscript@gmail.com
+
+(r packages datasets)
+gapminder
+swiss
+diamonds
+mpg
+data from the website, so they know how to load csv datasets (especially via web)
+mlbench: BostonHousing, PimaIndiansDiabetes, Glass
