@@ -1,0 +1,32 @@
+---
+title: "Instructions"
+---
+
+Before coming to our workshops, please make sure to do the following:
+
+- [Register online](https://goo.gl/forms/qRudGSGChQEc3Kbb2)
+- Install the required software on your laptop (see below)
+- Make sure to fully charge your laptop (sometimes outlet availability is low)
+
+# R software installation
+
+Please install these programs before coming to the workshops.  If you have
+issues with installing the programs, please come 15 minutes early to the
+workshop and we'll try to help you out. There is also the [FAQ](FAQ.html)
+available.
+
+- [R statistical software](http://cran.rstudio.com/). Direct links:
+    - [Mac OSX](https://cran.rstudio.com/bin/macosx/R-3.3.1.pkg)
+    - [Windows](https://cran.rstudio.com/bin/windows/base/R-3.3.1-win.exe)
+    - [Ubuntu (Linux)](https://cran.rstudio.com/bin/linux/ubuntu/)
+- [RStudio](http://www.rstudio.com). Direct links:
+    - [Mac OSX](https://download1.rstudio.org/RStudio-0.99.903.dmg)
+    - [Windows](https://download1.rstudio.org/RStudio-0.99.903.exe)
+    - [Ubuntu (Linux; 64-bit)](https://download1.rstudio.org/rstudio-0.99.903-amd64.deb)
+
+(Optionally) install these R packages by copy and pasting this code into the
+RStudio console (which we can do in the workshop):
+
+```{r, eval=FALSE}
+install.packages(c('readr', 'dplyr', 'tidyr', 'rmarkdown', 'ggplot2'))
+```
