@@ -1,0 +1,18 @@
+Package: rworkshops
+Title: Lesson Material for Code As Manuscript R Workshops
+Version: 0.0.0.9000
+Authors@R: person("Luke", "Johnston", email = "lwjohnst@gmail.com", role = c("aut", "cre"))
+Description: Contains the lesson material and site for the Code As Manuscript
+    R workshop series.
+Depends: R (>= 3.3.0)
+License: CC-BY
+Encoding: UTF-8
+LazyData: true
+Imports: tidyr,
+    dplyr,
+    readr,
+    ggplot2,
+    rmarkdown,
+    tibble,
+    knitr,
+    magrittr
