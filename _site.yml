@@ -1,0 +1,57 @@
+name: "Code As Manuscript"
+exclude:
+    - "DESCRIPTION"
+navbar:
+  title: "Code As Manuscript"
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "Workshops"
+      icon: fa-book
+      menu:
+        - text: "Pre-workshop instructions"
+          icon: fa-exclamation
+          href: instructions.html
+        - text: "Syllabus"
+          icon: fa-map-o
+          href: syllabus.html
+        - text: "Introduction to R and RStudio"
+          icon: fa-file-code-o
+          href: intro.html
+        - text: "Data managing/wrangling"
+          icon: fa-database
+          href: wrangle.html
+        - text: "Data visualization"
+          icon: fa-line-chart
+          href: plots.html
+        - text: "Statistics and report generation"
+          icon: fa-file-text
+          href: reports.html
+    - text: "About"
+      icon: fa-info
+      href: about.html
+  right:
+    - icon: fa-bars
+      menu:
+        - text: "Contact"
+          icon: fa-envelope
+          href: "mailto:codeasmanuscript@gmail.com"
+        - text: "GitHub"
+          icon: fa-github
+          href: https://github.com/codeasmanuscript
+        - text: "License"
+          icon: fa-creative-commons
+          href: LICENSE.html
+        - text: "YouTube"
+          icon: fa-youtube
+          #href: https://youtube.com
+
+output:
+    html_document:
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: false
+        theme: flatly
+        css: _includes/style.css
