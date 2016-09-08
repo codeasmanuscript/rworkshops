@@ -1,6 +1,6 @@
 # Code As Manuscript Workshops
 
-[![Travis-CI Build Status](https://travis-ci.org/.svg?branch=master)](https://travis-ci.org/)
+[![Travis-CI Build Status](https://travis-ci.org/codeasmanuscript/rworkshops.svg?branch=master)](https://travis-ci.org/codeasmanuscript/rworkshops)
 
 This series of *hands-on* workshops aims to introduce students to the concept of
 research reproducibility and to get the students practicing with using R and
