@@ -1,0 +1,14 @@
+language: R
+sudo: false
+cache:
+  packages: true
+  directories:
+  - _site
+script:
+- Rscript -e 'rmarkdown::render_site(".")'
+after_success:
+- bash deploy.sh
+env:
+  global:
+  - GITHUB_REPO: codeasmanuscript/rworkshops
+  - secure: Y5Sn0W4XU6Si8M2srXiTr5IFhof+VjpSrPuuYiasVVjgTgflthO8EqyyubGSY8is2atBFGutkHv8enyv3DMVkYDd+wX6+sbjEJpL50IR1bjeLhiLeQZvpR0ks/Iz2OHxmgR0sTodTdCvMLRNX7EFDzvEoedkFO90kbUJfEXdqKb+gDUrv6MLALsNSpWI2TU/mXp9SkLd51Jerf7qN/ahSorcR+ep/UdhJgYdKvSekd8vL5iuO8pYalXtiliSu1OSps6B1JhwD+FZH/ii20Iwjanzg6mtCWX3aKBLmbqY97GshwsMoC8jZz1rzKKSsU3ypYUopt1C2SBP/Md33KygBxrf9a2+GHdvbnDIPd3zCmdYkO7jxFnibnir+ezdhGL04Lme1xTTQjEGzU836huaBTv7FvlliYdXI7XoFcX791FcphWTNKVnAUIZcgES87nmI8tF0A2lMdIVGu4VOXxsJFBZEsehSpuxSi4ova/s037kbhnGqE58lndS+SKQoKqsn+KAfbgABZf4A8Qw29/ls9eb7HL4Ar/918ieWjGfRqO6Cd9Xok6WaMtJDWZZexnID4vk39FjNIRCsZ1ClfuzF2jEOojBuAu1VjGq8h+GWTFwLNCHU/zke5NDI9qODxzWk/500Y/NiDINw/zw1fSpS09OPtoJV4GixpyURWb0Evw=
