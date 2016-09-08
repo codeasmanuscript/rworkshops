@@ -315,11 +315,11 @@ is very useful to know as you get more familiar with R.
 
 All functions have arguments. You can see the arguments by hitting TAB when your
 cursor is inside the function (between the `()`). A list of argument options will
-be shown as well as a quick help on what the argument is and needs. Passing a
-value to an argument, called a parameter (e.g. `function_name(argument1 = parameter1)`),
-lets the function perform its action with that parameter value. Let's make a
-simple example by doing a sum of two values, plus an extra third that has the
-default value of 0:
+be shown as well as a quick help on what the argument is and needs. Passing a 
+value to an argument (e.g. `function_name(argument1 = value)`), lets the
+function perform its action with that argument value. Let's make a simple
+example by doing a sum of two values, plus an extra third that has the default
+value of 0:
 
 ```{r create_fun}
 adding <- function(value1, value2, value3 = 0) {
@@ -328,9 +328,9 @@ adding <- function(value1, value2, value3 = 0) {
 ```
 
 We have now created a new function called `adding`. The first two arguments *require*
-a parameter, while the third has a default so doesn't need a parameter. Let's
-add 2 with 2. There are two ways to do it, using positional parameters and named
-parameters.
+a value, while the third has a default so doesn't need a value. Let's
+add 2 with 2. There are two ways to do it, using positional arguments and named
+arguments.
 
 ```{r arg_type}
 # positional
