@@ -1,5 +1,5 @@
 ---
-title: Resources
+title: "Resources and FAQ"
 ---
 
 Below are some resources to help with learning R.
@@ -50,3 +50,20 @@ Below are some resources to help with learning R.
 - Q & A for R programming: <http://www.stackoverflow.com>
 - Q & A for R statistics: <http://stats.stackexchange.com>
 
+# Frequently asked questions (FAQ)
+
+- Is there any computers available to use for this workshop?
+    
+    At this time, no there is not. You will need to bring your laptop.
+
+- Is there any special software I need?
+
+    Besides the *free* and *open-source* programs listed in the
+    [instructions](instructions.html) page, you don't need anything else!
+
+- What if I don't have a laptop?
+
+    As with the question above, at this time we can't accommodate people who
+    don't have access to a laptop. Learners have in the past been able to get a
+    laptop from the own lab or department. One eventual goal is that we can get
+    these workshops in a computer lab of sorts to remove this issue.
