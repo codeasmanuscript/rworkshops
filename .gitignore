@@ -2,4 +2,6 @@
 .Rhistory
 .RData
 _site
+*.html
+*.csv
 
