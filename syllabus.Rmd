@@ -74,11 +74,3 @@ workshop.
 - Luke Johnston, MSc, PhD (c)  
 
 You can contact the workshop email at: codeasmanuscript@gmail.com
-
-(r packages datasets)
-gapminder
-swiss
-diamonds
-mpg
-data from the website, so they know how to load csv datasets (especially via web)
-mlbench: BostonHousing, PimaIndiansDiabetes, Glass
