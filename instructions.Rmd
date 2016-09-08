@@ -7,6 +7,7 @@ Before coming to our workshops, please make sure to do the following:
 - [Register online](https://goo.gl/forms/qRudGSGChQEc3Kbb2)
 - Install the required software on your laptop (see below)
 - Make sure to fully charge your laptop (sometimes outlet availability is low)
+- Read the [Code of Conduct](codeOfConduct.html)
 
 # R software installation
 
