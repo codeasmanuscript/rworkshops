@@ -1,6 +1,8 @@
 name: "Code As Manuscript"
 exclude:
     - "DESCRIPTION"
+    - "build.R"
+    - "README.md"
 navbar:
   title: "Code As Manuscript"
   left:
@@ -28,6 +30,9 @@ navbar:
         - text: "Statistics and report generation"
           icon: fa-file-text
           href: reports.html
+    - text: "Resources/FAQ"
+      icon: fa-question
+      href: resources.html
     - text: "About"
       icon: fa-info
       href: about.html
@@ -40,12 +45,9 @@ navbar:
         - text: "GitHub"
           icon: fa-github
           href: https://github.com/codeasmanuscript
-        - text: "License"
-          icon: fa-creative-commons
-          href: LICENSE.html
-        - text: "YouTube"
-          icon: fa-youtube
-          #href: https://youtube.com
+        #- text: "YouTube"
+        #  icon: fa-youtube
+        #  href: https://youtube.com
 
 output:
     html_document:
