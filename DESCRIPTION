@@ -15,4 +15,5 @@ Imports: tidyr,
     rmarkdown,
     tibble,
     knitr,
-    magrittr
+    magrittr,
+    devtools
