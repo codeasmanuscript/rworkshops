@@ -1,0 +1,56 @@
+---
+title: "Code of Conduct"
+output:
+    html_document:
+        toc: false
+---
+
+Code As Manuscript workshops are intended for learning and skill sharing.  We
+value every member of the scientific community and want all attendees to have an
+enjoyable and fulfilling experience. Accordingly, all attendees are expected to
+show respect and courtesy to other attendees throughout the workshop. The same
+standards of behaviour are expected in the workshop spaces online.
+
+To make clear what is expected, everyone taking part in the Code As Manuscript
+workshops---instructors and learners---is required to conform to the following
+Code of Conduct. Instructors will enforce this code throughout the sessions, but
+you may also contact us directly by email. All communication will be treated as 
+confidential.
+
+***Code of Conduct***
+
+Code As Manuscript workshops, along with the 
+[University of Toronto](https://www.utoronto.ca/), is dedicated to providing a
+harassment-free experience for everyone, regardless of gender, sexual
+orientation, disability, physical appearance, body size, race, nationality,
+religion, or choice of text editor. We do not tolerate harassment of
+participants in any form. See also the University of Toronto's
+[Policy on Conduct](http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppjul012002.pdf)
+
+- Harassment includes offensive verbal or written comments related to gender,
+sexual orientation, disability, physical appearance, body size, race, or
+religion, sexual images in public spaces, deliberate intimidation, stalking,
+following, harassing photography or recording, sustained disruption of talks or
+other events, inappropriate physical contact, and unwelcome sexual attention.
+
+- All communication should be appropriate for a professional audience including 
+people of many different backgrounds. Sexual language and imagery is not 
+appropriate for any event.
+
+- Be kind to others. Do not insult or put down other participants.
+
+- Behave professionally. Remember that harassment and sexist, racist, or
+exclusionary jokes are not appropriate.
+
+Participants asked to stop any harassing behavior are expected to comply
+immediately.  People violating these rules may be asked to leave the session or
+be excluded from the online space at the sole discretion of the instructor(s).
+
+Thank you for helping make this a welcoming, friendly workshop for all.
+
+*This code of conduct is a modified version of that used by 
+[Software Carpentry](http://software-carpentry.org/conduct/), which is also a
+modified version the version used by
+[PyCon](https://us.pycon.org/2015/about/code-of-conduct/), which in turn is
+forked from a template written by the Ada Initiative and hosted on
+[the Geek Feminism Wiki](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).*
