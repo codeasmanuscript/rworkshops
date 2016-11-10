@@ -1,7 +1,9 @@
 name: "Code As Manuscript"
+output_dir: "_site"
 exclude:
     - "DESCRIPTION"
     - "build.R"
+    - "deploy.sh"
     - "README.md"
 navbar:
   title: "Code As Manuscript"
@@ -23,7 +25,7 @@ navbar:
           href: intro.html
         - text: "Data managing/wrangling"
           icon: fa-database
-          href: wrangle.html
+          href: wrangling.html
         - text: "Data visualization"
           icon: fa-line-chart
           href: plots.html

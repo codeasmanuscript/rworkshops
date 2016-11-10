@@ -2,7 +2,7 @@
 # from https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db#.7cncb5854
 rm -rf _site || exit 0;
 
-Rscript build.R
+Rscript -e "rmarkdown::render_site('.')"
 
 cd _site
 git init
