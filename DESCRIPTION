@@ -16,4 +16,5 @@ Imports: tidyr,
     tibble,
     knitr,
     magrittr,
-    devtools
+    devtools,
+    broom
