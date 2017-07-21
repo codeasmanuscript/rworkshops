@@ -2,6 +2,9 @@
 title: "Who we are"
 ---
 
+> This website is under development. Some links may be broken and some
+documentation may be incomplete.
+
 <p class="message"> <strong>Code As Manuscript</strong> is an organization that
 teaches R through hands-on workshops. These workshops cover topics that
 encourage thinking about code and analyses as a 'publishable' unit and as
@@ -20,5 +23,4 @@ necessarily give.
 
 ## Upcoming session
 
-The next workshop will be some time in late Oct to mid Nov, 2016. Specific dates
-and times TBA.
+TBA
