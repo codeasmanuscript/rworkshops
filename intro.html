@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Using R and RStudio</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="_includes/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Code As Manuscript</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Workshops
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="instructions.html">
+        <span class="fa fa-exclamation"></span>
+         
+        Pre-workshop instructions
+      </a>
+    </li>
+    <li>
+      <a href="syllabus.html">
+        <span class="fa fa-map-o"></span>
+         
+        Syllabus
+      </a>
+    </li>
+    <li>
+      <a href="intro.html">
+        <span class="fa fa-file-code-o"></span>
+         
+        Introduction to R and RStudio
+      </a>
+    </li>
+    <li>
+      <a href="wrangling.html">
+        <span class="fa fa-database"></span>
+         
+        Data managing/wrangling
+      </a>
+    </li>
+    <li>
+      <a href="plots.html">
+        <span class="fa fa-line-chart"></span>
+         
+        Data visualization
+      </a>
+    </li>
+    <li>
+      <a href="reports.html">
+        <span class="fa fa-file-text"></span>
+         
+        Statistics and report generation
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="resources.html">
+    <span class="fa fa-question"></span>
+     
+    Resources/FAQ
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bars"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="mailto:codeasmanuscript@gmail.com">
+        <span class="fa fa-envelope"></span>
+         
+        Contact
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/codeasmanuscript">
+        <span class="fa fa-github"></span>
+         
+        GitHub
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Using R and RStudio</h1>
+
+</div>
+
+
+<p>R is an object-oriented programming language for statistical computing and graphics.</p>
+<p>There are many benefits to learning and using R:</p>
+<ol style="list-style-type: decimal">
+<li>Free and open source</li>
+<li>Thousands of packages for your analysis needs</li>
+<li>Active community (lots on online help)</li>
+<li>Has excellent publication-quality graphics</li>
+<li>Standard for statisticians and data analysts for statistical analysis</li>
+<li>Can interact with other programming languages</li>
+</ol>
+<div id="learning-objectives" class="section level1">
+<h1>Learning objectives:</h1>
+<ul>
+<li>Using RStudio and interacting with R
+<ul>
+<li>Basic key bindings/shortcuts</li>
+<li>Using R Projects</li>
+</ul></li>
+<li>Knowing how to get help (vignettes, <code>?</code>)</li>
+<li>Difference between R Markdown vs R scripts
+<ul>
+<li>What is R Markdown and how to use it</li>
+</ul></li>
+<li>Using basic and common R codes
+<ul>
+<li>Installing and loading packages</li>
+<li>Importing and exporting datasets</li>
+<li>Viewing your data</li>
+<li>Data types</li>
+<li>Assigning variables</li>
+<li>Extracting values from the data</li>
+<li>Using and making functions</li>
+</ul></li>
+</ul>
+</div>
+<div id="material-and-code" class="section level1">
+<h1>Material and code</h1>
+<div id="r-and-rstudio" class="section level2">
+<h2>R and RStudio</h2>
+<p>Interacting with R (sending commands and getting results output) is done through the console. RStudio (<a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">cheatsheet here</a>) has four panes, two of which we’ll cover first: Console pane and open files pane. The console is where code is sent and R gives back an output from that code. The open files include R scripts (<code>.R</code> files) and R markdown (<code>.Rmd</code>) files. You write your R code in the R/Rmd files and send the line of code to the console using <code>Ctrl-Enter</code>.</p>
+<p>It’s generally good practice to make an <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">R project</a> for a specific research objective (e.g. your thesis). Create an <code>.Rproj</code> by using <code>File -&gt; New Project</code>. Anytime you do work on that project, open the <code>.Rproj</code> file or via <code>File -&gt; Recent Projects</code>. You can have multiple R projects.</p>
+</div>
+<div id="getting-help" class="section level2">
+<h2>Getting help</h2>
+<p>Getting help is easy in R. There is help for individual functions (i.e. commands) as well as for R packages. Help for specific commands uses <code>?</code> in front of the function:</p>
+<pre class="r"><code>?head</code></pre>
+<p>Sometimes, specific packages have a more detailed description of the package, called a vignette. You can get information on the vignettes inside a package, followed by the specific vignette you want to read:</p>
+<pre class="r"><code>vignette(package = &#39;dplyr&#39;)
+vignette(&#39;introduction&#39;, package = &#39;dplyr&#39;)</code></pre>
+<p>Not all packages have vignettes, but it’s always useful to check if there is one.</p>
+</div>
+<div id="types-of-r-files" class="section level2">
+<h2>Types of R files</h2>
+<p>There are two types of R files: <code>.R</code> and <code>.Rmd</code>. R scripts (<code>.R</code>) contain only R code and nothing else; these are useful when all you want to do is run a set code sequence and produce a specific result, figure, or output. <a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown</a> (<code>.Rmd</code>) files can contain R code, text, citations, tables, figures, lists, and so on. An R Markdown file is like Word… except much more powerful as it can include R code <em>within</em> the document and can convert to a variety of file types including HTML and Word docx. Using this file type makes your research, manuscripts, and thesis more reproducible and saves you time and stress. For most of the workshop we’ll be using R Markdown.</p>
+<p>You can recognize an <code>.Rmd</code> file as it generally has this at the very top of the file:</p>
+<pre><code>---
+title: &quot;Introducing R Markdown&quot;
+author: &quot;Luke Johnston&quot;
+date: &quot;July 23, 2015&quot;
+output: html_document
+---</code></pre>
+<p>This snippet of code is called YAML. We’ll talk about that more in a <a href="report.html">later workshop</a>. For now, just know that <code>rmarkdown</code> (the package) uses the YAML to know what to convert the document to (in this case html).</p>
+</div>
+<div id="installing-and-loading-packages" class="section level2">
+<h2>Installing and loading packages</h2>
+<p>Installing packages can be done using either RStudio in the Packages pane or using the command:</p>
+<pre class="r"><code>install.packages(&#39;packagename&#39;)</code></pre>
+<p>We’ll use the package <code>readr</code> soon, so let’s load it up:</p>
+<pre class="r"><code>library(readr)</code></pre>
+<p>We can now use the functions inside the <code>readr</code> package. To see what functions there are, you can go to the console and start typing <code>readr::</code>, then hit TAB. A list of functions will pop up, showing all the functions inside <code>readr</code>. This TAB-completion is very useful.</p>
+</div>
+<div id="importing-and-exporting" class="section level2">
+<h2>Importing and exporting</h2>
+<p>Let’s use the <code>readr</code> functions to load in a dataset from the codeasmanuscript site. It’s generally good to store your data as <code>csv</code> files, which are known as comma separated values. These are plain text, meaning there is nothing but text in the file (unlike Excel <code>.xlsx</code> files which are <em>not</em> plain text; they contain markup inside the file itself).</p>
+<p>You can import files from your computer. It keep things easy, <em>make sure</em> the data file is in the same folder as your <code>.Rmd</code>/<code>.R</code>/<code>.Rproj</code> file(s). You can import the file into R via…</p>
+<pre class="r"><code># comment: to import use:
+ds &lt;- read_csv(&#39;states_data.csv&#39;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   StateName = col_character(),
+##   Population = col_integer(),
+##   Income = col_integer(),
+##   Illiteracy = col_double(),
+##   LifeExp = col_double(),
+##   Murder = col_double(),
+##   HSGrad = col_double(),
+##   Frost = col_integer(),
+##   Area = col_integer(),
+##   Region = col_character(),
+##   Division = col_character(),
+##   Longitude = col_double(),
+##   Latitude = col_double()
+## )</code></pre>
+<pre class="r"><code># or from a website
+# ds &lt;- read_csv(&#39;http://codeasmanuscript.org/states_data.csv&#39;) 
+ds</code></pre>
+<pre><code>## # A tibble: 50 x 13
+##      StateName Population Income Illiteracy LifeExp Murder HSGrad Frost
+##          &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+##  1     Alabama       3615   3624        2.1   69.05   15.1   41.3    20
+##  2      Alaska        365   6315        1.5   69.31   11.3   66.7   152
+##  3     Arizona       2212   4530        1.8   70.55    7.8   58.1    15
+##  4    Arkansas       2110   3378        1.9   70.66   10.1   39.9    65
+##  5  California      21198   5114        1.1   71.71   10.3   62.6    20
+##  6    Colorado       2541   4884        0.7   72.06    6.8   63.9   166
+##  7 Connecticut       3100   5348        1.1   72.48    3.1   56.0   139
+##  8    Delaware        579   4809        0.9   70.06    6.2   54.6   103
+##  9     Florida       8277   4815        1.3   70.66   10.7   52.6    11
+## 10     Georgia       4931   4091        2.0   68.54   13.9   40.6    60
+## # ... with 40 more rows, and 5 more variables: Area &lt;int&gt;, Region &lt;chr&gt;,
+## #   Division &lt;chr&gt;, Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+<p>To export data inside R to a file, use…</p>
+<pre class="r"><code>write_csv(&#39;states.csv&#39;)</code></pre>
+</div>
+<div id="viewing-your-data" class="section level2">
+<h2>Viewing your data</h2>
+<p>There are several functions to look over your data.</p>
+<pre class="r"><code># comment: quick summary
+summary(ds)</code></pre>
+<pre><code>##   StateName           Population        Income       Illiteracy   
+##  Length:50          Min.   :  365   Min.   :3098   Min.   :0.500  
+##  Class :character   1st Qu.: 1080   1st Qu.:3993   1st Qu.:0.625  
+##  Mode  :character   Median : 2838   Median :4519   Median :0.950  
+##                     Mean   : 4246   Mean   :4436   Mean   :1.170  
+##                     3rd Qu.: 4968   3rd Qu.:4814   3rd Qu.:1.575  
+##                     Max.   :21198   Max.   :6315   Max.   :2.800  
+##     LifeExp          Murder           HSGrad          Frost       
+##  Min.   :67.96   Min.   : 1.400   Min.   :37.80   Min.   :  0.00  
+##  1st Qu.:70.12   1st Qu.: 4.350   1st Qu.:48.05   1st Qu.: 66.25  
+##  Median :70.67   Median : 6.850   Median :53.25   Median :114.50  
+##  Mean   :70.88   Mean   : 7.378   Mean   :53.11   Mean   :104.46  
+##  3rd Qu.:71.89   3rd Qu.:10.675   3rd Qu.:59.15   3rd Qu.:139.75  
+##  Max.   :73.60   Max.   :15.100   Max.   :67.30   Max.   :188.00  
+##       Area           Region            Division           Longitude      
+##  Min.   :  1049   Length:50          Length:50          Min.   :-127.25  
+##  1st Qu.: 36985   Class :character   Class :character   1st Qu.:-104.16  
+##  Median : 54277   Mode  :character   Mode  :character   Median : -89.90  
+##  Mean   : 70736                                         Mean   : -92.46  
+##  3rd Qu.: 81162                                         3rd Qu.: -78.98  
+##  Max.   :566432                                         Max.   : -68.98  
+##     Latitude    
+##  Min.   :27.87  
+##  1st Qu.:35.55  
+##  Median :39.62  
+##  Mean   :39.41  
+##  3rd Qu.:43.14  
+##  Max.   :49.25</code></pre>
+<pre class="r"><code># first 6 rows
+head(ds)</code></pre>
+<pre><code>## # A tibble: 6 x 13
+##    StateName Population Income Illiteracy LifeExp Murder HSGrad Frost
+##        &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+## 1    Alabama       3615   3624        2.1   69.05   15.1   41.3    20
+## 2     Alaska        365   6315        1.5   69.31   11.3   66.7   152
+## 3    Arizona       2212   4530        1.8   70.55    7.8   58.1    15
+## 4   Arkansas       2110   3378        1.9   70.66   10.1   39.9    65
+## 5 California      21198   5114        1.1   71.71   10.3   62.6    20
+## 6   Colorado       2541   4884        0.7   72.06    6.8   63.9   166
+## # ... with 5 more variables: Area &lt;int&gt;, Region &lt;chr&gt;, Division &lt;chr&gt;,
+## #   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+<pre class="r"><code># last 6 rows
+tail(ds)</code></pre>
+<pre><code>## # A tibble: 6 x 13
+##       StateName Population Income Illiteracy LifeExp Murder HSGrad Frost
+##           &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+## 1       Vermont        472   3907        0.6   71.64    5.5   57.1   168
+## 2      Virginia       4981   4701        1.4   70.08    9.5   47.8    85
+## 3    Washington       3559   4864        0.6   71.72    4.3   63.5    32
+## 4 West Virginia       1799   3617        1.4   69.48    6.7   41.6   100
+## 5     Wisconsin       4589   4468        0.7   72.48    3.0   54.5   149
+## 6       Wyoming        376   4566        0.6   70.29    6.9   62.9   173
+## # ... with 5 more variables: Area &lt;int&gt;, Region &lt;chr&gt;, Division &lt;chr&gt;,
+## #   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+<pre class="r"><code># column names of your dataset
+colnames(ds)</code></pre>
+<pre><code>##  [1] &quot;StateName&quot;  &quot;Population&quot; &quot;Income&quot;     &quot;Illiteracy&quot; &quot;LifeExp&quot;   
+##  [6] &quot;Murder&quot;     &quot;HSGrad&quot;     &quot;Frost&quot;      &quot;Area&quot;       &quot;Region&quot;    
+## [11] &quot;Division&quot;   &quot;Longitude&quot;  &quot;Latitude&quot;</code></pre>
+<p>A very detailed view of the exact contents of the data object, the <code>str</code> function is very useful:</p>
+<pre class="r"><code>str(ds)</code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    50 obs. of  13 variables:
+##  $ StateName : chr  &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
+##  $ Population: int  3615 365 2212 2110 21198 2541 3100 579 8277 4931 ...
+##  $ Income    : int  3624 6315 4530 3378 5114 4884 5348 4809 4815 4091 ...
+##  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...
+##  $ LifeExp   : num  69 69.3 70.5 70.7 71.7 ...
+##  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...
+##  $ HSGrad    : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
+##  $ Frost     : int  20 152 15 65 20 166 139 103 11 60 ...
+##  $ Area      : int  50708 566432 113417 51945 156361 103766 4862 1982 54090 58073 ...
+##  $ Region    : chr  &quot;South&quot; &quot;West&quot; &quot;West&quot; &quot;South&quot; ...
+##  $ Division  : chr  &quot;East South Central&quot; &quot;Pacific&quot; &quot;Mountain&quot; &quot;West South Central&quot; ...
+##  $ Longitude : num  -86.8 -127.2 -111.6 -92.3 -119.8 ...
+##  $ Latitude  : num  32.6 49.2 34.2 34.7 36.5 ...
+##  - attr(*, &quot;spec&quot;)=List of 2
+##   ..$ cols   :List of 13
+##   .. ..$ StateName : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ Population: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   .. ..$ Income    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   .. ..$ Illiteracy: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ LifeExp   : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ Murder    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ HSGrad    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ Frost     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   .. ..$ Area      : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   .. ..$ Region    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ Division  : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ Longitude : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ Latitude  : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   ..$ default: list()
+##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
+##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+<p>To see the dimensions (number of rows and columns) on a dataset you can use</p>
+<pre class="r"><code>dim(ds)</code></pre>
+<pre><code>## [1] 50 13</code></pre>
+</div>
+<div id="data-types" class="section level2">
+<h2>Data types</h2>
+<p>There are several types of data in R. In general, these can be simplified into two classes: continuous and discrete. These can then be classified into other groups.</p>
+<ol style="list-style-type: decimal">
+<li>Continuous:
+<ul>
+<li>numeric</li>
+<li>integer</li>
+</ul></li>
+<li>Discrete:
+<ul>
+<li>character</li>
+<li>logical</li>
+<li>factor</li>
+</ul></li>
+</ol>
+<p>Continuous data types look like…</p>
+<pre class="r"><code>0.5:10.5</code></pre>
+<pre><code>##  [1]  0.5  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5 10.5</code></pre>
+<pre class="r"><code>class(0.5:10.5)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>1L:10L # comment: the `L` forces R to see it as an integer</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>class(1L:10L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>… while discrete data types look like</p>
+<pre class="r"><code>c(TRUE, FALSE) # comment: the `c` means &#39;combine&#39; or &#39;concatenate&#39;</code></pre>
+<pre><code>## [1]  TRUE FALSE</code></pre>
+<pre class="r"><code>class(c(TRUE, FALSE))</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>c(&#39;hi&#39;, &#39;there&#39;) # this is also called a vector</code></pre>
+<pre><code>## [1] &quot;hi&quot;    &quot;there&quot;</code></pre>
+<pre class="r"><code>as.numeric(c(&#39;hi&#39;, &#39;there&#39;))</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA NA</code></pre>
+<pre class="r"><code>class(c(&#39;hi&#39;, &#39;there&#39;, &#39;hi&#39;))</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>factor(c(&#39;hi&#39;, &#39;there&#39;, &#39;hi&#39;))</code></pre>
+<pre><code>## [1] hi    there hi   
+## Levels: hi there</code></pre>
+<pre class="r"><code>class(factor(c(&#39;hi&#39;, &#39;there&#39;, &#39;hi&#39;)))</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code># comment: factors are basically numbers underneath.
+as.numeric(factor(c(&#39;hi&#39;, &#39;there&#39;, &#39;hi&#39;)))</code></pre>
+<pre><code>## [1] 1 2 1</code></pre>
+<pre class="r"><code># comment: characters are not.
+as.numeric(c(&#39;hi&#39;, &#39;there&#39;))</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA NA</code></pre>
+<p>There are also more complex object types in R. Two common ones are lists and dataframes. A dataframe is what you just loaded above in the <code>ds</code> object. It can contain any data type except for other dataframes. So…</p>
+<pre class="r"><code>class(ds)</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p>A list can have any number of data types inside it, including dataframes and more lists.</p>
+<pre class="r"><code>ds_list &lt;- list(data = ds, number = 1:10, char = c(&#39;hi&#39;, &#39;there&#39;))
+class(ds_list)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>ds_list</code></pre>
+<pre><code>## $data
+## # A tibble: 50 x 13
+##      StateName Population Income Illiteracy LifeExp Murder HSGrad Frost
+##          &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+##  1     Alabama       3615   3624        2.1   69.05   15.1   41.3    20
+##  2      Alaska        365   6315        1.5   69.31   11.3   66.7   152
+##  3     Arizona       2212   4530        1.8   70.55    7.8   58.1    15
+##  4    Arkansas       2110   3378        1.9   70.66   10.1   39.9    65
+##  5  California      21198   5114        1.1   71.71   10.3   62.6    20
+##  6    Colorado       2541   4884        0.7   72.06    6.8   63.9   166
+##  7 Connecticut       3100   5348        1.1   72.48    3.1   56.0   139
+##  8    Delaware        579   4809        0.9   70.06    6.2   54.6   103
+##  9     Florida       8277   4815        1.3   70.66   10.7   52.6    11
+## 10     Georgia       4931   4091        2.0   68.54   13.9   40.6    60
+## # ... with 40 more rows, and 5 more variables: Area &lt;int&gt;, Region &lt;chr&gt;,
+## #   Division &lt;chr&gt;, Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;
+## 
+## $number
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $char
+## [1] &quot;hi&quot;    &quot;there&quot;</code></pre>
+<pre class="r"><code>names(ds_list) # find out the names of the objects inside the list</code></pre>
+<pre><code>## [1] &quot;data&quot;   &quot;number&quot; &quot;char&quot;</code></pre>
+</div>
+<div id="variable-assignment" class="section level2">
+<h2>Variable assignment</h2>
+<p>Often you need to run a function to get an output and then use that output to do other things to it, like plot it or make it into a table. In order to help with that, there is variable assignment using the assignment operator <code>&lt;-</code>. We used it earlier to assign the dataframe from <code>read_csv</code> to the <code>ds</code> object.</p>
+<pre class="r"><code>weight_kg &lt;- 75
+weight_kg</code></pre>
+<pre><code>## [1] 75</code></pre>
+<pre class="r"><code>weight_lb &lt;- weight_kg * 2.2
+weight_lb</code></pre>
+<pre><code>## [1] 165</code></pre>
+</div>
+<div id="extracting-values-from-an-object" class="section level2">
+<h2>Extracting values from an object</h2>
+<p>You can use several methods to take one or more items from a vector, dataframe, or list using <code>$</code>, <code>[]</code>, or <code>[[]]</code>.</p>
+<pre class="r"><code># vector can only use []
+num &lt;- 1:10
+num[1] # first item</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>num[9] # ninth item</code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="r"><code># dataframes and lists can use any of the methods
+ds$Income # directly choose the Income column, converts to vector</code></pre>
+<pre><code>##  [1] 3624 6315 4530 3378 5114 4884 5348 4809 4815 4091 4963 4119 5107 4458
+## [15] 4628 4669 3712 3545 3694 5299 4755 4751 4675 3098 4254 4347 4508 5149
+## [29] 4281 5237 3601 4903 3875 5087 4561 3983 4660 4449 4558 3635 4167 3821
+## [43] 4188 4022 3907 4701 4864 3617 4468 4566</code></pre>
+<pre class="r"><code>ds[&#39;Income&#39;] # same as above, but keeps as column</code></pre>
+<pre><code>## # A tibble: 50 x 1
+##    Income
+##     &lt;int&gt;
+##  1   3624
+##  2   6315
+##  3   4530
+##  4   3378
+##  5   5114
+##  6   4884
+##  7   5348
+##  8   4809
+##  9   4815
+## 10   4091
+## # ... with 40 more rows</code></pre>
+<pre class="r"><code>ds[c(&#39;Income&#39;, &#39;Population&#39;)] # same as above, but keeps as column</code></pre>
+<pre><code>## # A tibble: 50 x 2
+##    Income Population
+##     &lt;int&gt;      &lt;int&gt;
+##  1   3624       3615
+##  2   6315        365
+##  3   4530       2212
+##  4   3378       2110
+##  5   5114      21198
+##  6   4884       2541
+##  7   5348       3100
+##  8   4809        579
+##  9   4815       8277
+## 10   4091       4931
+## # ... with 40 more rows</code></pre>
+<pre class="r"><code>ds[3] # using numbers, again keeping as column</code></pre>
+<pre><code>## # A tibble: 50 x 1
+##    Income
+##     &lt;int&gt;
+##  1   3624
+##  2   6315
+##  3   4530
+##  4   3378
+##  5   5114
+##  6   4884
+##  7   5348
+##  8   4809
+##  9   4815
+## 10   4091
+## # ... with 40 more rows</code></pre>
+<pre class="r"><code>ds[[3]] # converts to number</code></pre>
+<pre><code>##  [1] 3624 6315 4530 3378 5114 4884 5348 4809 4815 4091 4963 4119 5107 4458
+## [15] 4628 4669 3712 3545 3694 5299 4755 4751 4675 3098 4254 4347 4508 5149
+## [29] 4281 5237 3601 4903 3875 5087 4561 3983 4660 4449 4558 3635 4167 3821
+## [43] 4188 4022 3907 4701 4864 3617 4468 4566</code></pre>
+<pre class="r"><code># combining [[]] and []
+ds[[3]][4] # choose fourth item of third column</code></pre>
+<pre><code>## [1] 3378</code></pre>
+<pre class="r"><code># ds[3][4] # this doesn&#39;t work 
+ds[3,4] # but this does, which means [rownumber, columnnumber]</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   Illiteracy
+##        &lt;dbl&gt;
+## 1        1.8</code></pre>
+<pre class="r"><code>ds[[3,4]] # converts to number</code></pre>
+<pre><code>## [1] 1.8</code></pre>
+<pre class="r"><code># a range:
+ds[1:5, 1:4]</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##    StateName Population Income Illiteracy
+##        &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;
+## 1    Alabama       3615   3624        2.1
+## 2     Alaska        365   6315        1.5
+## 3    Arizona       2212   4530        1.8
+## 4   Arkansas       2110   3378        1.9
+## 5 California      21198   5114        1.1</code></pre>
+<pre class="r"><code># as a list
+ds_list$number # converts to vector</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>ds_list[[2]] # as a vector</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>ds_list[2] # as a named vector</code></pre>
+<pre><code>## $number
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># combining [[]] and []
+ds_list[[2]][4] # chooses fourth item of the second list item</code></pre>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="using-and-making-functions" class="section level2">
+<h2>Using and making functions</h2>
+<p>In R, nearly every command is a function. You can look at the contents of any function by simply typing in the function without the <code>()</code>:</p>
+<pre class="r"><code>factor</code></pre>
+<pre><code>## function (x = character(), levels, labels = levels, exclude = NA, 
+##     ordered = is.ordered(x), nmax = NA) 
+## {
+##     if (is.null(x)) 
+##         x &lt;- character()
+##     nx &lt;- names(x)
+##     if (missing(levels)) {
+##         y &lt;- unique(x, nmax = nmax)
+##         ind &lt;- sort.list(y)
+##         levels &lt;- unique(as.character(y)[ind])
+##     }
+##     force(ordered)
+##     if (!is.character(x)) 
+##         x &lt;- as.character(x)
+##     levels &lt;- levels[is.na(match(levels, exclude))]
+##     f &lt;- match(x, levels)
+##     if (!is.null(nx)) 
+##         names(f) &lt;- nx
+##     nl &lt;- length(labels)
+##     nL &lt;- length(levels)
+##     if (!any(nl == c(1L, nL))) 
+##         stop(gettextf(&quot;invalid &#39;labels&#39;; length %d should be 1 or %d&quot;, 
+##             nl, nL), domain = NA)
+##     levels(f) &lt;- if (nl == nL) 
+##         as.character(labels)
+##     else paste0(labels, seq_along(levels))
+##     class(f) &lt;- c(if (ordered) &quot;ordered&quot;, &quot;factor&quot;)
+##     f
+## }
+## &lt;bytecode: 0x3c89188&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>For a beginner, this doesn’t always come in handy. However, it is something that is very useful to know as you get more familiar with R.</p>
+<p>All functions have arguments. You can see the arguments by hitting TAB when your cursor is inside the function (between the <code>()</code>). A list of argument options will be shown as well as a quick help on what the argument is and needs. Passing a value to an argument (e.g. <code>function_name(argument1 = value)</code>), lets the function perform its action with that argument value. Let’s make a simple example by doing a sum of two values, plus an extra third that has the default value of 0:</p>
+<pre class="r"><code>adding &lt;- function(value1, value2, value3 = 0) {
+    value1 + value2
+}</code></pre>
+<p>We have now created a new function called <code>adding</code>. The first two arguments <em>require</em> a value, while the third has a default so doesn’t need a value. Let’s add 2 with 2. There are two ways to do it, using positional arguments and named arguments.</p>
+<pre class="r"><code># positional
+adding(2, 2)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code># named
+adding(value1 = 2, value2 = 2)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Generally, the first two arguments are made to be positional, but further arguments are named. Like so:</p>
+<pre class="r"><code>adding(2, 2, value3 = 2)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>That’s the simple run down of making functions. We’ll make more complex ones as we learn more.</p>
+</div>
+<div id="assignment" class="section level2">
+<h2>Assignment:</h2>
+<p>TBA</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

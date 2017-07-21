@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>About</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="_includes/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Code As Manuscript</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Workshops
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="instructions.html">
+        <span class="fa fa-exclamation"></span>
+         
+        Pre-workshop instructions
+      </a>
+    </li>
+    <li>
+      <a href="syllabus.html">
+        <span class="fa fa-map-o"></span>
+         
+        Syllabus
+      </a>
+    </li>
+    <li>
+      <a href="intro.html">
+        <span class="fa fa-file-code-o"></span>
+         
+        Introduction to R and RStudio
+      </a>
+    </li>
+    <li>
+      <a href="wrangling.html">
+        <span class="fa fa-database"></span>
+         
+        Data managing/wrangling
+      </a>
+    </li>
+    <li>
+      <a href="plots.html">
+        <span class="fa fa-line-chart"></span>
+         
+        Data visualization
+      </a>
+    </li>
+    <li>
+      <a href="reports.html">
+        <span class="fa fa-file-text"></span>
+         
+        Statistics and report generation
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="resources.html">
+    <span class="fa fa-question"></span>
+     
+    Resources/FAQ
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bars"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="mailto:codeasmanuscript@gmail.com">
+        <span class="fa fa-envelope"></span>
+         
+        Contact
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/codeasmanuscript">
+        <span class="fa fa-github"></span>
+         
+        GitHub
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">About</h1>
+
+</div>
+
+
+<p>Most of the information can be found in the <a href="index.html">Home</a> page or <a href="syllabus.html">syllabus</a>. But here are some interesting facts about the website!</p>
+<ul>
+<li>This website was created using <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">R Markdown for Websites</a>, developed on <a href="https://github.com/">GitHub</a> and hosted for free using <a href="https://pages.github.com">GitHub Pages</a></li>
+<li>The content on our site is <a href="LICENSE.html">licensed</a> using CC-BY, meaning you can use use and reuse the lesson content without restriction, as long as you cite the website!</li>
+</ul>
+<div id="license" class="section level3">
+<h3>License</h3>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Code As Manuscript</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://codeasmanuscript.org" property="cc:attributionName" rel="cc:attributionURL">Luke W. Johnston</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
+<div id="r-session-info" class="section level3">
+<h3>R Session Info</h3>
+<pre class="r"><code>devtools::session_info()</code></pre>
+<pre><code>## Session info -------------------------------------------------------------</code></pre>
+<pre><code>##  setting  value                       
+##  version  R version 3.4.0 (2017-04-21)
+##  system   x86_64, linux-gnu           
+##  ui       X11                         
+##  language (EN)                        
+##  collate  en_US.UTF-8                 
+##  tz       Etc/UTC                     
+##  date     2017-07-21</code></pre>
+<pre><code>## Packages -----------------------------------------------------------------</code></pre>
+<pre><code>##  package   * version date       source         
+##  backports   1.1.0   2017-05-22 cran (@1.1.0)  
+##  base      * 3.4.0   2017-04-21 local          
+##  compiler    3.4.0   2017-04-21 local          
+##  datasets  * 3.4.0   2017-04-21 local          
+##  devtools    1.13.2  2017-06-02 CRAN (R 3.4.0) 
+##  digest      0.6.12  2017-01-27 CRAN (R 3.4.0) 
+##  evaluate    0.10.1  2017-06-24 cran (@0.10.1) 
+##  graphics  * 3.4.0   2017-04-21 local          
+##  grDevices * 3.4.0   2017-04-21 local          
+##  htmltools   0.3.6   2017-04-28 cran (@0.3.6)  
+##  knitr       1.16    2017-05-18 cran (@1.16)   
+##  magrittr    1.5     2014-11-22 cran (@1.5)    
+##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.0) 
+##  methods     3.4.0   2017-04-21 local          
+##  Rcpp        0.12.12 2017-07-15 cran (@0.12.12)
+##  rmarkdown   1.6     2017-06-15 cran (@1.6)    
+##  rprojroot   1.2     2017-01-16 cran (@1.2)    
+##  stats     * 3.4.0   2017-04-21 local          
+##  stringi     1.1.5   2017-04-07 cran (@1.1.5)  
+##  stringr     1.2.0   2017-02-18 cran (@1.2.0)  
+##  tools       3.4.0   2017-04-21 local          
+##  utils     * 3.4.0   2017-04-21 local          
+##  withr       1.0.2   2016-06-20 CRAN (R 3.4.0) 
+##  yaml        2.1.14  2016-11-12 cran (@2.1.14)</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
